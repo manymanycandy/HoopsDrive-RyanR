@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Orange circle background -->
+  <circle cx="16" cy="16" r="16" fill="#E8500A"/>
+  <!-- Basketball lines -->
+  <path d="M16 2 Q16 16 16 30" stroke="#000" stroke-width="1.2" fill="none" opacity="0.25"/>
+  <path d="M2 16 Q16 16 30 16" stroke="#000" stroke-width="1.2" fill="none" opacity="0.25"/>
+  <path d="M5 7 Q14 16 5 25" stroke="#000" stroke-width="1" fill="none" opacity="0.2"/>
+  <path d="M27 7 Q18 16 27 25" stroke="#000" stroke-width="1" fill="none" opacity="0.2"/>
+  <!-- Letter H -->
+  <text x="16" y="22" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="18" fill="white" text-anchor="middle" letter-spacing="-1">H</text>
+</svg>
