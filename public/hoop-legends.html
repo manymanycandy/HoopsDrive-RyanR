@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <title>🏀 HOOP LEGENDS – The Lost Court</title>
+  <link rel="stylesheet" href="/hoop-legends-style.css"/>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     MAIN MENU
+═══════════════════════════════════════════════════════ -->
+<div id="screen-menu" class="screen active">
+  <div class="menu-particles" id="menuParticles"></div>
+  <div class="menu-center">
+    <div class="menu-logo">
+      <div class="logo-ball">🏀</div>
+      <h1>HOOP LEGENDS</h1>
+      <p class="logo-sub">— The Lost Court —</p>
+    </div>
+    <p class="menu-desc">Khám phá mê cung huyền thoại, thu thập vật phẩm bí ẩn<br/>và giải mã cánh cổng để trở thành huyền thoại bóng rổ!</p>
+    <div class="menu-btns">
+      <button class="mbtn mbtn-play" id="btnStart">▶ BẮT ĐẦU HÀNH TRÌNH</button>
+      <button class="mbtn mbtn-story" id="btnStory">📖 CỐT TRUYỆN</button>
+      <button class="mbtn mbtn-how" id="btnHow">🎮 HƯỚNG DẪN</button>
+    </div>
+    <div class="menu-record" id="menuRecord"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     STORY SCREEN
+═══════════════════════════════════════════════════════ -->
+<div id="screen-story" class="screen">
+  <div class="story-box">
+    <h2>📜 Cốt Truyện</h2>
+    <div class="story-text">
+      <p>Năm 2047. Sân vận động huyền thoại <strong>Legends Arena</strong> đã bị phong ấn bởi một lời nguyền bí ẩn sau khi chiếc cúp vô địch cuối cùng biến mất.</p>
+      <p>Bạn là <strong>Alex "The Ghost" Nguyen</strong> — cầu thủ trẻ tài năng nhất thế hệ. Để phá vỡ lời nguyền, bạn phải xâm nhập vào mê cung 3 tầng của Legends Arena.</p>
+      <p>Thu thập <strong>5 vật phẩm huyền thoại</strong> rải rác trong mê cung, trả lời câu hỏi tại mỗi cánh cổng, và cuối cùng — <strong>giải mã Cổng Huyền Thoại</strong> để giải phóng linh hồn các huyền thoại bóng rổ!</p>
+      <p class="story-warn">⚠️ Cẩn thận! Những <strong>bóng ma bảo vệ</strong> đang tuần tra trong bóng tối...</p>
+    </div>
+    <button class="mbtn mbtn-play" id="btnStoryBack">← Quay Lại</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     HOW TO PLAY
+═══════════════════════════════════════════════════════ -->
+<div id="screen-how" class="screen">
+  <div class="how-box">
+    <h2>🎮 Hướng Dẫn Chơi</h2>
+
+    <!-- BASIC CONTROLS GRID -->
+    <div class="how-section-title">🕹️ Điều Khiển Cơ Bản</div>
+    <div class="how-grid">
+      <div class="how-item"><span>🕹️</span><strong>Di chuyển</strong><p>WASD hoặc phím mũi tên</p></div>
+      <div class="how-item"><span>💡</span><strong>Fog of War</strong><p>Chỉ thấy khu vực xung quanh nhân vật</p></div>
+      <div class="how-item"><span>🎁</span><strong>Vật phẩm</strong><p>Đi vào để thu thập mảnh huyền thoại</p></div>
+      <div class="how-item"><span>🚪</span><strong>Cổng tầng</strong><p>Cần đủ vật phẩm + trả lời đúng để qua</p></div>
+      <div class="how-item"><span>👻</span><strong>Kẻ địch</strong><p>Tránh bóng ma — bị bắt mất 1 mạng</p></div>
+      <div class="how-item"><span>❓</span><strong>Quiz</strong><p>Trả lời đúng để mở cổng và nhận điểm</p></div>
+      <div class="how-item"><span>🗺️</span><strong>Mini-map</strong><p>Góc phải — vùng đã khám phá sẽ hiện</p></div>
+      <div class="how-item"><span>⚡</span><strong>Power-up</strong><p>Tốc độ, bất tử tạm thời, lộ bản đồ</p></div>
+    </div>
+
+    <!-- FLOOR PROGRESSION -->
+    <div class="how-section-title">🏟️ Cách Chuyển Màn</div>
+    <div class="how-flow">
+      <div class="how-flow-step">
+        <div class="hfs-num">1</div>
+        <div class="hfs-body">
+          <strong>Thu thập vật phẩm</strong>
+          <p>Nhặt <em>5 vật phẩm</em> phát sáng trong mê cung mỗi tầng.</p>
+        </div>
+      </div>
+      <div class="how-flow-arrow">▶</div>
+      <div class="how-flow-step">
+        <div class="hfs-num">2</div>
+        <div class="hfs-body">
+          <strong>Mở Cổng A → B</strong>
+          <p>Đủ vật phẩm, trả lời <em>3 câu</em>. Mở A trước, rồi B.</p>
+        </div>
+      </div>
+      <div class="how-flow-arrow">▶</div>
+      <div class="how-flow-step">
+        <div class="hfs-num">3</div>
+        <div class="hfs-body">
+          <strong>Lên cầu thang ▲</strong>
+          <p>Cả 2 cổng mở → cầu thang <em>mở khóa</em>, đi vào để lên tầng.</p>
+        </div>
+      </div>
+      <div class="how-flow-arrow">▶</div>
+      <div class="how-flow-step hfs-special">
+        <div class="hfs-num">🌟</div>
+        <div class="hfs-body">
+          <strong>Cổng Huyền Thoại</strong>
+          <p>Tầng 3: trả lời đúng <em>6 câu</em> để <strong>chiến thắng!</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WIN / LOSE / PENALTY -->
+    <div class="how-section-title">🎯 Thắng · Thua · Hình Phạt</div>
+    <div class="how-wlp">
+      <div class="how-wlp-col how-win">
+        <div class="wlp-icon">🏆</div>
+        <strong>CHIẾN THẮNG</strong>
+        <ul>
+          <li>Hoàn thành cả 3 tầng</li>
+          <li>Mở Cổng Huyền Thoại ở tầng 3</li>
+          <li>Trả lời đúng 6 câu cuối</li>
+        </ul>
+      </div>
+      <div class="how-wlp-col how-lose">
+        <div class="wlp-icon">💀</div>
+        <strong>THUA CUỘC</strong>
+        <ul>
+          <li>Bị bóng ma bắt 3 lần → hết mạng</li>
+          <li>Mỗi lần bị bắt mất ❤️ 1 mạng</li>
+          <li>Hết 3 mạng → Game Over</li>
+        </ul>
+      </div>
+      <div class="how-wlp-col how-penalty">
+        <div class="wlp-icon">⚠️</div>
+        <strong>HÌNH PHẠT</strong>
+        <ul>
+          <li>Trả lời sai 3 lần tại 1 cổng</li>
+          <li>Toàn bộ vật phẩm bị thu hồi</li>
+          <li>Cổng đó dịch chuyển sang vị trí mới</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SCORING TIPS -->
+    <div class="how-section-title">💡 Mẹo Ghi Điểm</div>
+    <div class="how-tips">
+      <div class="how-tip"><span>⏱️</span><p>Trả lời nhanh = thưởng thêm điểm (tối đa +90 điểm thưởng tốc độ)</p></div>
+      <div class="how-tip"><span>🔥</span><p>Trả lời đúng liên tiếp tăng Combo x2 → x6, nhân điểm thưởng</p></div>
+      <div class="how-tip"><span>🎁</span><p>Mỗi vật phẩm nhặt được cộng 100–500 điểm tùy độ hiếm</p></div>
+      <div class="how-tip"><span>🛡️</span><p>Dùng Power-up Bất Tử khi bị bóng ma vây để tránh mất mạng</p></div>
+    </div>
+
+    <button class="mbtn mbtn-play" id="btnHowBack">← Quay Lại</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     GAME SCREEN
+═══════════════════════════════════════════════════════ -->
+<div id="screen-game" class="screen">
+  <!-- HUD TOP -->
+  <div id="hud-top">
+    <div class="hud-block">
+      <span class="hud-lbl">TẦNG</span>
+      <span class="hud-val" id="hudFloor">1/3</span>
+    </div>
+    <div class="hud-block">
+      <span class="hud-lbl">ĐIỂM</span>
+      <span class="hud-val" id="hudScore">0</span>
+    </div>
+    <div class="hud-block hud-lives">
+      <span class="hud-lbl">MẠNG</span>
+      <span class="hud-val" id="hudLives">❤️❤️❤️</span>
+    </div>
+    <div class="hud-block">
+      <span class="hud-lbl">COMBO</span>
+      <span class="hud-val hud-combo" id="hudCombo">x1</span>
+    </div>
+    <div class="hud-block hud-time">
+      <span class="hud-lbl">THỜI GIAN</span>
+      <span class="hud-val" id="hudTime">00:00</span>
+    </div>
+    <button id="btnMute" class="hud-mute" title="Tắt/Bật âm thanh">🔊</button>
+  </div>
+
+  <!-- INVENTORY BAR -->
+  <div id="inventory-bar">
+    <span class="inv-lbl">🎒 VẬT PHẨM:</span>
+    <div id="inv-slots"></div>
+    <span class="inv-hint" id="invHint"></span>
+  </div>
+
+  <!-- CANVAS -->
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- MINI MAP -->
+  <canvas id="miniMap"></canvas>
+
+  <!-- MOBILE CONTROLS -->
+  <div id="mobileCtrl">
+    <div class="dpad">
+      <button class="dp dp-u" data-k="up">▲</button>
+      <button class="dp dp-l" data-k="left">◀</button>
+      <button class="dp dp-c">●</button>
+      <button class="dp dp-r" data-k="right">▶</button>
+      <button class="dp dp-d" data-k="down">▼</button>
+    </div>
+  </div>
+
+  <!-- FLOOR TRANSITION -->
+  <div id="floorTransition" class="hidden">
+    <div class="ft-content">
+      <div class="ft-icon" id="ftIcon">🏀</div>
+      <h2 id="ftTitle">TẦNG 2</h2>
+      <p id="ftSub">Sân Đấu Huyền Thoại</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     QUIZ MODAL
+═══════════════════════════════════════════════════════ -->
+<div id="quizModal" class="modal-overlay hidden">
+  <div class="quiz-card">
+    <div class="quiz-top">
+      <div class="quiz-gate-info">
+        <span id="qGateIcon">🚪</span>
+        <span id="qGateName">Cổng Tầng 1</span>
+      </div>
+      <div class="quiz-timer-wrap">
+        <svg viewBox="0 0 40 40" class="qtimer-svg">
+          <circle cx="20" cy="20" r="17" class="qt-bg"/>
+          <circle cx="20" cy="20" r="17" class="qt-ring" id="qtRing"/>
+        </svg>
+        <span id="qtNum">15</span>
+      </div>
+    </div>
+    <div class="quiz-req" id="qReq"></div>
+    <div class="quiz-cat" id="qCat"></div>
+    <h3 id="qText"></h3>
+    <div class="quiz-opts" id="qOpts"></div>
+    <div class="quiz-fb hidden" id="qFb"></div>
+    <div class="quiz-clue hidden" id="qClue">
+      <span class="clue-icon">💡</span>
+      <span id="qClueText"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     ITEM COLLECT POPUP
+═══════════════════════════════════════════════════════ -->
+<div id="itemPopup" class="item-popup hidden">
+  <div class="ip-icon" id="ipIcon">🏆</div>
+  <div class="ip-info">
+    <strong id="ipName">Chiếc Nhẫn Vô Địch</strong>
+    <p id="ipDesc">Mảnh huyền thoại đã được thu thập!</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     GAME OVER
+═══════════════════════════════════════════════════════ -->
+<div id="screen-gameover" class="screen">
+  <div class="go-box">
+    <div class="go-icon">💀</div>
+    <h2>GAME OVER</h2>
+    <p id="goMsg">Bạn đã bị bóng ma bắt!</p>
+    <div class="go-stats">
+      <div class="gs-item"><span id="goScore">0</span><label>Điểm</label></div>
+      <div class="gs-item"><span id="goFloor">1</span><label>Tầng đạt</label></div>
+      <div class="gs-item"><span id="goItems">0/5</span><label>Vật phẩm</label></div>
+    </div>
+    <div class="go-btns">
+      <button class="mbtn mbtn-play" id="btnRetry">🔄 Thử Lại</button>
+      <button class="mbtn mbtn-how" id="btnGoMenu">🏠 Menu</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     VICTORY
+═══════════════════════════════════════════════════════ -->
+<div id="screen-victory" class="screen">
+  <div class="vic-bg"></div>
+  <div class="vic-box">
+    <div class="vic-trophy">🏆</div>
+    <h2>HUYỀN THOẠI!</h2>
+    <p id="vicMsg">Bạn đã giải phóng Legends Arena!</p>
+    <div class="vic-stats">
+      <div class="vs-item"><span id="vicScore">0</span><label>Điểm Số</label></div>
+      <div class="vs-item"><span id="vicTime">0:00</span><label>Thời Gian</label></div>
+      <div class="vs-item"><span id="vicAcc">0%</span><label>Chính Xác</label></div>
+      <div class="vs-item"><span id="vicBest">0</span><label>Kỷ Lục</label></div>
+    </div>
+    <div class="vic-rank" id="vicRank"></div>
+    <div class="go-btns">
+      <button class="mbtn mbtn-play" id="btnVicPlay">🔄 Chơi Lại</button>
+      <button class="mbtn mbtn-how" id="btnVicMenu">🏠 Menu</button>
+    </div>
+  </div>
+</div>
+
+<script src="/hoop-legends-game.js"></script>
+</body>
+</html>

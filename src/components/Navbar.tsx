@@ -8,7 +8,7 @@ const navLinks = [
     { path: "/", label: "Home" },
     { path: "/my-story", label: "My Story" },
     { path: "/learn", label: "Learn" },
-    { path: "/gear", label: "Training" },
+    { path: "/training", label: "Training" },
     { path: "/minigame", label: "Minigame" },
     { path: "/ask-ai", label: "Ask AI" },
 ];
